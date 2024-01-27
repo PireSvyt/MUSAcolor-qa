@@ -2,31 +2,34 @@ const { random_id } = require("../utils/toolkit.js")
 
 let scenari = {
     paths: {
-        "root": "https://musacolor.vercel.app/",
+        "root": "http://localhost:3000/",
         "landing": "",
         "patient": "patient/"
     },
-    'random practician': {
-        login: random_id() + '@yopmail.com',
-        pawword: random_id()
-    },
-    'practician A': {
-        login: 'practician@yopmail.com',
-        pawword: 'practician'
-    },
-    'practician B': {
-        login: '',
-        pawword: ''
-    },
-    authent: {
-        signin: {
-            timeout: 10 // seconds
+    accounts:{
+        'random practician': {
+            login: random_id() + '@yopmail.com',
+            password: random_id()
         },
-        signout: {
-            timeout: 10 // seconds
-        }
+        'practician A': {
+            login: 'practicianA@yopmail.com',
+            password: 'practician'
+        },
+        'practician B': {
+            login: 'practicianB@yopmail.com',
+            password: 'practician'
+        },
     },
-
+    timeout: { // in seconds
+        admincommands: 10,
+        appmenu: 3, 
+        authent: 10, 
+        practician: {
+            managepatients: 5,
+            manageexams: 5
+        },
+        helppage: 3
+    }
 }
 
 module.exports = { scenari };

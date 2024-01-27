@@ -10,7 +10,7 @@
     },
     "scripts": {
       "cucumber": "cucumber-js --require cucumber.js",
-      "cucumber-report": "cucumber-js --require cucumber.js --publish --tags 'not @todo'"
+      "cucumber-report": "cucumber-js --require cucumber.js --publish"
     },
     "keywords": [],
     "author": "",
