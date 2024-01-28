@@ -8,13 +8,17 @@ const patientPerformExamPVO = new PatientPerformExamPVO
 Then("the PVO analysis shall be available", async () => {
 	await patientPerformExamPVO.assertAnalysisIsAvailable()
 })
+Then("{string} shall be the stage of the PVO exam", async (input) => {
+	await patientPerformExamPVO.assertStageIs(input)
+})
+
 
 
 // Reductions
 Given("I perform an exam of type PVO", async () => {
-	await patientPerformExamPVO.assertStageIsIntro()
+	await patientPerformExamPVO.assertStageIs('intro')
 	await patientPerformExamPVO.clickBegin()
-	await patientPerformExamPVO.assertStageIsTest()
+	await patientPerformExamPVO.assertStageIs('test')
     let r = 0
     let c = 0
     // New row
@@ -139,8 +143,8 @@ Given("I perform an exam of type PVO", async () => {
     r += 1
 	await patientPerformExamPVO.assertFinishCallToActionIsEnabled()
 	await patientPerformExamPVO.clickFinish()
-	await patientPerformExamPVO.assertStageIsOutro()
+	await patientPerformExamPVO.assertStageIs('outro')
 	await patientPerformExamPVO.clickToAnalysis()
-	await patientPerformExamPVO.assertStageIsAnalysis()
+	await patientPerformExamPVO.assertStageIs('analysis')
 	await patientPerformExamPVO.clickCloseIcon()
 })

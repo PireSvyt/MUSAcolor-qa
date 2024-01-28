@@ -25,6 +25,10 @@ class PracticianManageExam {
 		const element = global.page.getByTestId("component-patient exams")
 		await expect(element).toBeVisible()
 	}
+    async assertExamTypeIsSelected(input) {
+		const element = global.page.getByTestId("modal-exam-select-examtype-"+input)
+		await expect(element).toBeChecked()
+	}
 
 	// Clicks
 	async clickNewExamCallToAction() {
@@ -36,28 +40,10 @@ class PracticianManageExam {
     async clickNewExamCloseCallToAction() {
 		await global.page.getByTestId("modal-exam-button-close").click()
 	}
-    /*
-    async clickExamCallToAction(input) {
-		await global.page.getByTestId("listitem-patient-click+"+input).click()
-	}
-    async clickExamMenuCallToAction(input) {
-		await global.page.getByTestId("listitem-patient-menu+"+input).click()
-	}
-    async clickExamDeleteCallToAction(input) {
-		await global.page.getByTestId("listitem-patient-menuitem-delete+"+input).click()
-	}
-    async clickExamDeleteConfirmCallToAction() {
-		await global.page.getByTestId("modal-confirm-button-generic.button.proceed").click()
-	}
-    async clickExamDeleteCancelCallToAction() {
-		await global.page.getByTestId("modal-confirm-button-generic.button.canceld").click()
-	}
-    */
     
-    
-    // Inputs
-	async fillName(value) {
-		await global.page.locator("data-testid=modal-exam-input-name >> input").fill(value)
+    // Select
+    async selectExamType(examType) {
+		await global.page.getByTestId("modal-exam-select-examtype-" + examType).click()
 	}
     
 }

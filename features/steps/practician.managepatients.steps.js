@@ -50,6 +50,9 @@ Then("{string} shall not be part of my patients", async (input) => {
 Then("I shall be on patient page for {string}", async (input) => {
 	await practicianManagePatient.assertIAmOnThisPatientPage(input)
 })
+Then ("duplicated patient name warning shall be visible", async () => {
+	await practicianManagePatient.assertDuplicatedNameIsVisible()
+})
 
 // Reductions
 Given("I create a patient named {string}", async (input) => {

@@ -33,6 +33,10 @@ class PracticianManagePatient {
 		const element = global.page.getByTestId("page-patient-label-patientname").getByText(input)
 		await expect(element).toBeVisible()
 	}    
+    async assertDuplicatedNameIsVisible() {
+		const element = global.page.getByTestId("page-patient-label-duplicatedpatientname")
+		await expect(element).toBeVisible()
+	}    
 
 	// Clicks
 	async clickNewPatientCallToAction() {

@@ -7,21 +7,21 @@ Feature: Tenancy
     @sanity
     Scenario: Patients from practician A are not accessible by practician B
         Given I sign in with credentials of 'practician A'
-        And I create a patient named 'patient A'
+        And I create a patient named 'tenancy patient A'
         And I navigate to 'home' page
         And I sign out
         When I sign in with credentials of 'practician B'
-        Then 'patient A' shall not be part of my patients
+        Then 'tenancy patient A' shall not be part of my patients
     @sanity  @todo
     Scenario: Exams related to patients from practician A are not accessible by practician B
         Given I sign in with credentials of 'practician A'
-        And I go to patient page for 'patient A'
+        When I click the patient tile of 'tenancy patient A'
         And I create an exam of type 'PVO'
-        And I perform an exam of type 'PVO'
-        And I close the exam
+        And I perform an exam of type PVO
+        When I click the app close icon
         And I navigate to exam page with url
         And exam analysis shall be accessible
-        And I close the exam
+        When I click the app close icon
         And I sign out
         When I sign in with credentials of 'practician B'
         And I navigate to exam page with url

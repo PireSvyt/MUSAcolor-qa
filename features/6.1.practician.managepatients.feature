@@ -3,7 +3,7 @@ Feature: Practician - Manage patients
     # This feature enables practicians to create, get and delete patients
 
     Background:
-        Given I sign in with credentials of 'practician A'
+        Given I sign in with credentials of 'practician patients'
 
     # CORE CAPABILITIES
     @sanity @todo
@@ -32,14 +32,23 @@ Feature: Practician - Manage patients
     # REDUCED CAPABILITIES (for other features to simplify related scenari)
     @reducers
     Scenario: REDUCTION : I create a patient named {string}
-        Given I create a patient named 'patient Z'
-        And I shall be on patient page for 'patient Z'
+        Given I create a patient named 'patient reduction'
+        And I shall be on patient page for 'patient reduction'
         And I navigate to 'home' page
-        Then 'patient Z' shall be part of my patients
+        Then 'patient reduction' shall be part of my patients
     @reducers
     Scenario: REDUCTION : I delete a patient named {string}
-        Given I delete a patient named 'patient Z'
-        Then 'patient Z' shall not be part of my patients
+        Given I delete a patient named 'patient reduction'
+        Then 'patient reduction' shall not be part of my patients
 
     # STANDARD CAPABILITIES
+    @standard
+    Scenario: I can't create a patient with an existing name
+        Given I create a patient named 'patient duplicate'
+        And I navigate to 'home' page
+        And I click new patient icon of my patients
+        And patient modal shall be visible
+        And I fill name of patient modal with 'patient duplicate'
+        When I click proceed button of the patient modal
+        Then duplicated patient name warning shall be visible
         

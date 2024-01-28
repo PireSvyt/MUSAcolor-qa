@@ -19,14 +19,36 @@ let scenari = {
             login: 'practicianB@yopmail.com',
             password: 'practician'
         },
+        'practician patients': {
+            login: 'practicianpatients@yopmail.com',
+            password: 'practician'
+        },
+        'practician exams': {
+            login: 'practicianexams@yopmail.com',
+            password: 'practician'
+        },
     },
     timeout: { // in seconds
         admincommands: 10,
-        appmenu: 3, 
-        authent: 10, 
+        appmenu: {
+            value: 3
+        }, 
+        authent: {
+            value: 10,
+        }, 
         practician: {
-            managepatients: 5,
-            manageexams: 5
+            managepatients: { 
+                value: 5
+            },
+            manageexams: { 
+                value: 5,
+                pvo: { 
+                    value: 10                
+                },
+                luscher8: { 
+                    value: 5                
+                },
+            },
         },
         helppage: 3
     }

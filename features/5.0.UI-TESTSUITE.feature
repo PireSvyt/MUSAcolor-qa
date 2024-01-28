@@ -1,7 +1,8 @@
-Feature: Intro
+Feature: UI TEST SUITE
 
     # This feature enables to check all inputs are all set 
     # and to prepare the database for test purpose
+    # for the UI test suite
 
     # Check environment variables
 

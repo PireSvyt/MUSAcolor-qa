@@ -4,12 +4,16 @@ const { scenari } = require("../../resources/scenari.js")
 
 setDefaultTimeout(scenari.timeout.practician.manageexams * 1000)
 
-class PatientPerformExamPVO {
+class PatientPerformExamLuscher8 {
 
     // State
     async assertStageIs(input) {
 		const element = global.page.getByTestId("page-exam-stage-" + input)
 		await expect(element).toBeVisible()
+	}
+    async assertNextCallToActionIsEnabled() {
+		const element = global.page.getByTestId("page-exam-button-next1")
+		await expect(element).toBeEnabled()
 	}
     async assertFinishCallToActionIsEnabled() {
 		const element = global.page.getByTestId("page-exam-button-finish")
@@ -22,11 +26,17 @@ class PatientPerformExamPVO {
     
 
 	// Clicks
-	async clickBegin() {
-		await global.page.getByTestId("page-exam-button-begin").click()
+	async clickBegin1() {
+		await global.page.getByTestId("page-exam-button-begin1").click()
 	}
 	async clickTile(row,col) {
-		await global.page.getByTestId("component-pvoexam-test-R-"+row+"-C-"+col).click()
+		await global.page.getByTestId("component-luscher8-test-R-"+row+"-C-"+col).click()
+	}
+	async clickNext() {
+		await global.page.getByTestId("page-exam-button-next1").click()
+	}
+	async clickBegin2() {
+		await global.page.getByTestId("page-exam-button-begin2").click()
 	}
 	async clickFinish() {
 		await global.page.getByTestId("page-exam-button-finish").click()
@@ -40,4 +50,4 @@ class PatientPerformExamPVO {
     
 }
 
-module.exports = { PatientPerformExamPVO }
+module.exports = { PatientPerformExamLuscher8 }
