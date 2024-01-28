@@ -8,9 +8,6 @@ const patientPerformExamPVO = new PatientPerformExamPVO
 Then("the PVO analysis shall be available", async () => {
 	await patientPerformExamPVO.assertAnalysisIsAvailable()
 })
-Then("{string} shall be the stage of the PVO exam", async (input) => {
-	await patientPerformExamPVO.assertStageIs(input)
-})
 
 
 

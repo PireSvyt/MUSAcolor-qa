@@ -1,6 +1,6 @@
 Feature: App menu
 
-    # This feature a menu to navigate through the app
+    This feature provides a menu to navigate through the app
 
     # CORE CAPABILITIES
     @sanity @todo

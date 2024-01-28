@@ -18,23 +18,23 @@ class PracticianManagePatient {
     
     // State
 	async assertIsOneOfMyPatients(input) {
-		const element = global.page.getByText(input)
+		const element = await global.page.getByText(input)
 		await expect(element.first()).toBeVisible()
 	}
     async assertIsNotOneOfMyPatients(input) {
-		const element = global.page.getByText(input)
+		const element = await global.page.getByText(input)
 		await expect(element).toBeHidden()
 	}
     async assertIAmOnPatientPage() {
-		const element = global.page.getByTestId("page-patient")
+		const element = await global.page.getByTestId("page-patient")
 		await expect(element).toBeVisible()
 	}    
     async assertIAmOnThisPatientPage(input) {
-		const element = global.page.getByTestId("page-patient-label-patientname").getByText(input)
+		const element = await global.page.getByTestId("page-patient-label-patientname").getByText(input)
 		await expect(element).toBeVisible()
 	}    
     async assertDuplicatedNameIsVisible() {
-		const element = global.page.getByTestId("page-patient-label-duplicatedpatientname")
+		const element = await global.page.getByTestId("page-patient-label-duplicatedpatientname")
 		await expect(element).toBeVisible()
 	}    
 
@@ -61,7 +61,7 @@ class PracticianManagePatient {
 		await global.page.getByTestId("modal-confirm-button-generic.button.proceed").click()
 	}
     async clickPatientDeleteCancelCallToAction() {
-		await global.page.getByTestId("modal-confirm-button-generic.button.canceld").click()
+		await global.page.getByTestId("modal-confirm-button-generic.button.cancel").click()
 	}
     
     

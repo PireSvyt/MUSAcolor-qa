@@ -8,9 +8,6 @@ const patientPerformExamLuscher8 = new PatientPerformExamLuscher8
 Then("the Luscher 8 analysis shall be available", async () => {
 	await patientPerformExamLuscher8.assertAnalysisIsAvailable()
 })
-Then("{string} shall be the stage of the Luscher 8 exam", async (input) => {
-	await patientPerformExamLuscher8.assertStageIs(input)
-})
 
 
 // Reductions

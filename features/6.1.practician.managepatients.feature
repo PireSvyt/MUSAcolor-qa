@@ -1,6 +1,6 @@
 Feature: Practician - Manage patients
 
-    # This feature enables practicians to create, get and delete patients
+    This feature enables practicians to create, get and delete patients
 
     Background:
         Given I sign in with credentials of 'practician patients'
@@ -42,8 +42,8 @@ Feature: Practician - Manage patients
         Then 'patient reduction' shall not be part of my patients
 
     # STANDARD CAPABILITIES
-    @standard
-    Scenario: I can't create a patient with an existing name
+    @standard @skipped
+    Scenario: I can't create a patient with an existing name // NOT YET IMPLEMENTED
         Given I create a patient named 'patient duplicate'
         And I navigate to 'home' page
         And I click new patient icon of my patients

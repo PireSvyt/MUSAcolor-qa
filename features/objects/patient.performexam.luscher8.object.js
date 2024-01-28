@@ -8,19 +8,19 @@ class PatientPerformExamLuscher8 {
 
     // State
     async assertStageIs(input) {
-		const element = global.page.getByTestId("page-exam-stage-" + input)
+		const element = await global.page.getByTestId("page-exam-stage-" + input)
 		await expect(element).toBeVisible()
 	}
     async assertNextCallToActionIsEnabled() {
-		const element = global.page.getByTestId("page-exam-button-next1")
+		const element = await global.page.getByTestId("page-exam-button-next1")
 		await expect(element).toBeEnabled()
 	}
     async assertFinishCallToActionIsEnabled() {
-		const element = global.page.getByTestId("page-exam-button-finish")
+		const element = await global.page.getByTestId("page-exam-button-finish")
 		await expect(element).toBeEnabled()
 	}
     async assertAnalysisIsAvailable() {
-		const element = global.page.getByTestId("page-exam-stage-analysis")
+		const element = await global.page.getByTestId("page-exam-stage-analysis")
 		await expect(element).toBeVisible()
 	}
     

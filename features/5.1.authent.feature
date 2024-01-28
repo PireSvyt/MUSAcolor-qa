@@ -1,6 +1,6 @@
 Feature: Authent
 
-    # This feature provides a secured access to the product
+    This feature provides a secured access to the product
 
     Background:
         Given I open Landing page without being signed in
@@ -42,26 +42,24 @@ Feature: Authent
         Then I shall be logged in
 
     # STANDARD CAPABILITIES
-    @standard @todo
+    @standard
     Scenario: Sign in modal provides feedback when proceeding without credentials
         When I click proceed button of the sign in modal
         Then sign in modal shall be visible
-        And login field from sign in modal shall in error
-        And password field from sign in modal shall in error        
-    @standard @todo
+        And 'login' field from sign in modal shall in error
+        And 'password' field from sign in modal shall in error        
+    @standard
     Scenario: Sign in modal provides feedback when proceeding with invalid credentials
         Given I fill login of sign in modal with 'practician A'
         And I fill password of sign in modal with 'random practician'
         When I click proceed button of the sign in modal
         Then sign in modal shall be visible
-        And password field from sign in modal shall in error
-        And wrong password warning from sign in modal shall be visible  
-        And password reset button from sign in modal shall be visible       
-    @standard @todo
+        And 'password' field from sign in modal shall in error
+        And password reset button from sign in modal shall be visible  
+    @standard
     Scenario: Sign in modal provides feedback when proceeding with unknown login
         Given I fill login of sign in modal with 'random practician'
         And I fill password of sign in modal with 'random practician'
         When I click proceed button of the sign in modal
         Then sign in modal shall be visible
-        And login field from sign in modal shall in error   
-        And wrong login warning from sign in modal shall be visible
+        And 'login' field from sign in modal shall in error

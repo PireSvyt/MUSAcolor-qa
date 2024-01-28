@@ -15,6 +15,22 @@ class Authent {
         const element = await global.page.getByTestId("component-my patients")
         await expect(element).toBeHidden()
     }  
+	async assertFieldIsError(input) {
+        const element = await global.page.locator("data-testid=modal-sign in-input-"+input+" >> input").getAttribute('aria-invalid')
+        await expect(element).toBeTruthy()
+    }  
+	async assertWrongPasswordWarningIsVisible() {
+        const element = await global.page.getByTestId("modal-sign in-box-password send")
+        await expect(element).toBeVisible()
+    }  
+	async assertPasswordResetButtonIsVisible() {
+        const element = await global.page.getByTestId("modal-sign in-button-reset password")
+        await expect(element).toBeVisible()
+    }  
+	async assertWrongLoginWarningIsVisible() {
+        const element = await global.page.getByTestId("modal-sign in-box-error on finding account")
+        await expect(element).toBeVisible()
+    }  
 
 	// Page
 	async navigateToPage() {

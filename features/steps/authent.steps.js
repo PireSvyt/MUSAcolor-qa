@@ -11,6 +11,18 @@ Then("I shall be logged in", async () => {
 Then("I shall be signed out", async () => {
 	await authent.assertIAMLoggedOut()
 })
+Then("{string} field from sign in modal shall in error", async (input) => {
+	await authent.assertFieldIsError(input)
+})
+Then("wrong password warning from sign in modal shall be visible", async () => {
+	await authent.assertWrongPasswordWarningIsVisible()
+})
+Then("password reset button from sign in modal shall be visible", async () => {
+	await authent.assertPasswordResetButtonIsVisible()
+})
+Then("wrong login warning from sign in modal shall be visible", async () => {
+	await authent.assertWrongLoginWarningIsVisible()
+})
 
 // Landing
 Given("I open Landing page without being signed in", async () => {
